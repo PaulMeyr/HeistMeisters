@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://GFX/PNG/Tiles/tile_463.png" type="Texture" id=1]
-[ext_resource path="res://Lightmaps/Flashlight.tscn" type="PackedScene" id=2]
-[ext_resource path="res://GFX/PNG/Tiles/tile_536.png" type="Texture" id=3]
+[ext_resource path="res://NPCs/PlayerDetection.gd" type="Script" id=2]
+[ext_resource path="res://Lightmaps/Flashlight.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GFX/PNG/Tiles/tile_536.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 25.5616, 22.3524 )
@@ -35,13 +36,16 @@ texture = ExtResource( 1 )
 position = Vector2( 5.16988, 0 )
 rotation = 2.35619
 scale = Vector2( 0.5, 0.5 )
+collision_layer = 4
+collision_mask = 7
+script = ExtResource( 2 )
 
-[node name="Flashlight" parent="CameraBody" instance=ExtResource( 2 )]
+[node name="Flashlight" parent="CameraBody" instance=ExtResource( 3 )]
 position = Vector2( 0, -17 )
 rotation = -1.5708
 
 [node name="Sprite" type="Sprite" parent="CameraBody"]
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraBody"]
 visible = false
@@ -49,5 +53,4 @@ shape = SubResource( 1 )
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CameraBody"]
-autoplay = "CameraRotation"
 anims/CameraRotation = SubResource( 2 )
