@@ -47,9 +47,7 @@ func update_path():
 func make_path():
 	var new_destination = possible_destinations[randi() % possible_destinations.size() -1]
 	path = navigation.get_simple_path(position, new_destination.position, false)
-	print(path)
 
 
 func _on_Timer_timeout():
-	print("timer timeout")
 	make_path()
