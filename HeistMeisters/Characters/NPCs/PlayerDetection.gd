@@ -22,8 +22,8 @@ func Player_in_LOS():
 	var space = get_world_2d().direct_space_state
 	var LOS_obstacle = space.intersect_ray(global_position, Player.global_position, [self], collision_mask)
 	var distance_to_player = Player.global_position.distance_to(global_position)
-	var max_detection_range = $Flashlight.texture.get_size()
-	var Player_in_range = Player.global_position.distance_to(global_position) < max_detection_range.y * .8
+	var max_detection_range = $Flashlight.texture.get_size() * 1.5
+	var Player_in_range = Player.global_position.distance_to(global_position) < max_detection_range.y
 	if not LOS_obstacle:
 		return false
 	
@@ -34,7 +34,9 @@ func Player_in_LOS():
 
 
 func Player_in_FOV():
-	var npc_facing_direction = Vector2(0,-1).rotated(global_rotation)
+	var npc_facing_direction = Vector2(1,0).rotated(global_rotation)
+	if self.name == "CameraBody":
+		npc_facing_direction = Vector2(0,-1).rotated(global_rotation)
 	var direction_to_player = (Player.position - global_position).normalized()
 	
 	
