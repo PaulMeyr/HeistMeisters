@@ -4,7 +4,7 @@ var motion = Vector2()
 
 func _physics_process(delta):
 	update_movement()
-#	update_light()
+	update_light()
 	move_and_slide(motion)
 
 
@@ -24,6 +24,7 @@ func update_movement():
 		motion.x = lerp(motion.x, 0, FRICTION)
 
 
-#func update_light():
-#	if Input.is_action_just_pressed("light_switch"):
-#		$Flashlight.visible = not $Flashlight.visible
+func update_light():
+	if Input.is_action_just_pressed("toggle_vision_mode"):
+		get_tree().call_group("Interface", "cycle_vision_mode")
+		
