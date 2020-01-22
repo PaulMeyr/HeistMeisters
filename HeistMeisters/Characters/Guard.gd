@@ -8,7 +8,7 @@ var possible_destinations
 var path
 
 export var destination_threshold = 5
-export var walk_speed = 0.5
+export var walk_speed = 0.2
 
 func _ready():
 	randomize()
