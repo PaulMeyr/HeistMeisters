@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Characters/NPCs/Computer.gd" type="Script" id=1]
+[ext_resource path="res://GFX/PNG/Tiles/tile_537.png" type="Texture" id=2]
+[ext_resource path="res://GFX/PNG/Tiles/tile_519.png" type="Texture" id=3]
+[ext_resource path="res://Interface/ComputerPopup.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 48, 64 )
+
+[node name="Computer" type="Area2D"]
+collision_layer = 2
+script = ExtResource( 1 )
+lock_group = Color( 1, 0, 0, 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 0.429413 )
+rotation = 1.5708
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 33.9101, 0 )
+shape = SubResource( 1 )
+
+[node name="Light2D" type="Light2D" parent="."]
+visible = false
+position = Vector2( 32, 0.091589 )
+rotation = 1.5708
+scale = Vector2( 0.9, 1 )
+texture = ExtResource( 3 )
+color = Color( 0.686275, 1, 1, 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ComputerPopup" parent="CanvasLayer" instance=ExtResource( 4 )]
+[connection signal="body_entered" from="." to="." method="_on_Computer_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Computer_body_exited"]

@@ -5,7 +5,6 @@
 [node name="VisionMode" type="CanvasModulate" groups=[
 "Interface",
 ]]
-visible = false
 color = Color( 0.227451, 0.227451, 0.227451, 1 )
 script = ExtResource( 1 )
 

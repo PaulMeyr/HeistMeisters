@@ -28,3 +28,4 @@ func update_light():
 	if Input.is_action_just_pressed("toggle_vision_mode"):
 		get_tree().call_group("Interface", "cycle_vision_mode")
 		
+		

@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Doors/Door.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Doors/LockedDoor.gd" type="Script" id=2]
 [ext_resource path="res://GFX/PNG/Tiles/tile_463.png" type="Texture" id=3]
 [ext_resource path="res://Interface/Numpad.tscn" type="PackedScene" id=4]
 
-[node name="LockedDoor" index="0" instance=ExtResource( 1 )]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31.8323, 20.976 )
+
+[node name="LockedDoor" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="DoorSprite" parent="." index="1"]
@@ -14,4 +17,12 @@ texture = ExtResource( 3 )
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="3"]
 
 [node name="Numpad" parent="CanvasLayer" index="0" instance=ExtResource( 4 )]
+
+[node name="ExitDetection" type="Area2D" parent="." index="4"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDetection" index="0"]
+position = Vector2( 0, 21.5856 )
+shape = SubResource( 1 )
 [connection signal="combination_correct" from="CanvasLayer/Numpad" to="." method="_on_Numpad_combination_correct"]
+[connection signal="body_entered" from="ExitDetection" to="." method="_on_ExitDetection_body_entered"]

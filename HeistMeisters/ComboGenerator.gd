@@ -1,6 +1,6 @@
 extends Node
 
-export var length = 8
+export var length = 4
 
 
 func _ready():
@@ -12,4 +12,4 @@ func generate_combo(length):
 	for number in range(length):
 		randomize()
 		combination.append(randi() % 10)
-	print(combination)
+	return combination

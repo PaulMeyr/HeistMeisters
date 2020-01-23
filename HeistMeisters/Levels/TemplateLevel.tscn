@@ -1,9 +1,10 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Tiles/Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://GFX/Tilesheet/tilesheet_complete.png" type="Texture" id=2]
 [ext_resource path="res://Characters/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Interface/VisionMode.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Doors/ComboGenerator.tscn" type="PackedScene" id=5]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -285,12 +286,15 @@ tile_data = PoolIntArray( -131076, 1, 0, -131075, 1, 2, -131074, 1, 2, -131073, 
 tile_set = SubResource( 23 )
 format = 1
 
+[node name="Computers" type="Node" parent="Navigation2D"]
+
 [node name="Destinations" type="Node" parent="Navigation2D"]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -62.4816, -20.9633 )
 
 [node name="VisionMode" parent="." instance=ExtResource( 4 )]
+visible = false
 color = Color( 0.239216, 0.239216, 0.239216, 1 )
 
 [node name="Cameras" type="Node" parent="."]
@@ -300,3 +304,5 @@ color = Color( 0.239216, 0.239216, 0.239216, 1 )
 [node name="Doors" type="Node" parent="."]
 
 [node name="LockedDoors" type="Node" parent="."]
+
+[node name="ComboGenerator" parent="." instance=ExtResource( 5 )]
