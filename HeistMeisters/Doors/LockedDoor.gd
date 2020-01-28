@@ -27,6 +27,7 @@ func _on_Numpad_combination_correct():
 func _on_Computer_combination(combo):
 	combination = combo
 	$CanvasLayer/Numpad.combination = combination
+	print("door combination function run")
 
 
 func _on_ExitDetection_body_entered(body):

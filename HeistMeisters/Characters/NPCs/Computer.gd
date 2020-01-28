@@ -12,17 +12,20 @@ func _ready():
 	add_to_group("locked_doors")
 	dark_mode()
 	$Light2D.enabled = false
+	generate_combo()
 
 
 func generate_combo():
 	var combination_generator = get_tree().get_root().find_node("ComboGenerator", true, false)
 	combination = combination_generator.generate_combo(comnbination_length)
-	emit_signal("combination", combination, lock_group)
+	print("computer generate_combo run")
+	emit_signal("combination", combination)
+	$CanvasLayer/ComputerPopup.set_text(str(combination))
 	return combination
 
 
 func set_popup_text():
-	$CanvasLayer/ComputerPopup.set_text(generate_combo())
+	pass
 
 
 func _on_Computer_body_entered(body):
@@ -39,6 +42,7 @@ func _on_Computer_body_exited(body):
 func _input_event(viewport, event, shape_idx):
 	if Input.is_mouse_button_pressed(BUTTON_LEFT) and can_click:
 		set_popup_text()
+		generate_combo()
 		$CanvasLayer/ComputerPopup.popup_centered()
 		$Light2D.enabled = true
 		
@@ -48,3 +52,7 @@ func dark_mode():
 
 func nightvision_mode():
 	$Sprite.self_modulate = Color("ffffff")
+
+
+func _on_Computer_combination():
+	pass # Replace with function body.

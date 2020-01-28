@@ -51,6 +51,7 @@ func update_display():
 	if guess.size() == combination.size():
 		check_guess()
 
+
 func reset_lock():
 	display.text = ""
 	light.texture = load("res://GFX/Interface/PNG/dotRed.png")

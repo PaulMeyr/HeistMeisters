@@ -309,3 +309,5 @@ color = Color( 0.239216, 0.239216, 0.239216, 1 )
 [node name="ComboGenerator" parent="." instance=ExtResource( 5 )]
 
 [node name="GUI" parent="." instance=ExtResource( 6 )]
+
+[node name="LightSources" type="Node" parent="."]
