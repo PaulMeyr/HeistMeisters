@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Characters/CharacterOccluder.tres" type="OccluderPolygon2D" id=1]
+
+[node name="CharacterOccluder" type="LightOccluder2D"]
+occluder = ExtResource( 1 )

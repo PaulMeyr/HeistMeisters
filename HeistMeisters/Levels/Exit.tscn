@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Levels/Exit.gd" type="Script" id=1]
+[ext_resource path="res://GFX/Interface/Fonts/kenvector_future.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 101.076, 38.7044 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
+
+[node name="Exit" type="ColorRect"]
+modulate = Color( 1, 1, 1, 0.733333 )
+margin_right = 40.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 200, 75 )
+color = Color( 0.654902, 0.854902, 0.615686, 1 )
+script = ExtResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 100.027, 37.9259 )
+collision_layer = 0
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 80.5432
+margin_top = 28.874
+margin_right = 124.543
+margin_bottom = 46.874
+custom_fonts/font = SubResource( 2 )
+text = "Exit"
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

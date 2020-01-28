@@ -14,6 +14,7 @@ func _ready():
 func _process(delta):
 	if Player_in_FOV() and Player_in_LOS():
 		$Flashlight.color = RED
+		get_tree().call_group("SuspicionMeter", "player_seen")
 	else:
 		$Flashlight.color = WHITE
 
@@ -24,6 +25,7 @@ func Player_in_LOS():
 	var distance_to_player = Player.global_position.distance_to(global_position)
 	var max_detection_range = $Flashlight.texture.get_size() * 1.5
 	var Player_in_range = Player.global_position.distance_to(global_position) < max_detection_range.y
+	
 	if not LOS_obstacle:
 		return false
 	

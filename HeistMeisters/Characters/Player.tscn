@@ -4,7 +4,9 @@
 [ext_resource path="res://Characters/Player.gd" type="Script" id=2]
 [ext_resource path="res://GFX/PNG/Hitman 1/hitman1_stand.png" type="Texture" id=3]
 
-[node name="Player" instance=ExtResource( 1 )]
+[node name="Player" index="0" groups=[
+"Loot",
+] instance=ExtResource( 1 )]
 collision_mask = 6
 script = ExtResource( 2 )
 
@@ -13,3 +15,18 @@ texture = ExtResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="." index="2"]
 current = true
+
+[node name="Timer" type="Timer" parent="." index="4"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Label" type="Label" parent="." index="5" groups=[
+"Loot",
+]]
+visible = false
+margin_left = 22.1214
+margin_top = -32.9914
+margin_right = 62.1214
+margin_bottom = -18.9914
+text = "0.00"
+[connection signal="timeout" from="Timer" to="." method="disguise_off"]

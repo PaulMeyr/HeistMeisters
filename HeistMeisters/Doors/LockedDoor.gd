@@ -35,8 +35,8 @@ func _on_ExitDetection_body_entered(body):
 
 func dark_mode():
 	$DoorSprite.self_modulate = lock_group
-	print("lockedDoor Darkmode")
+
 
 func nightvision_mode():
 	$DoorSprite.self_modulate = Color("ffffff")
-	print("lockdoor nightvision")
+
