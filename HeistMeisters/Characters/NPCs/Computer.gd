@@ -18,7 +18,6 @@ func _ready():
 func generate_combo():
 	var combination_generator = get_tree().get_root().find_node("ComboGenerator", true, false)
 	combination = combination_generator.generate_combo(comnbination_length)
-	print("computer generate_combo run")
 	emit_signal("combination", combination)
 	$CanvasLayer/ComputerPopup.set_text(str(combination))
 	return combination
