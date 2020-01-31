@@ -39,7 +39,7 @@ func move():
 func update_path():
 	if path.size() == 1:
 		if $Timer.is_stopped():
-		 	$Timer.start()
+			$Timer.start()
 	else: 
 		path.remove(0)
 
